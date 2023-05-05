@@ -1,3 +1,7 @@
+####  This is a sample Event as coming from the EventViewer.
+####  You can tweak this to test Wazuh rules will actually trigger
+####  with particular values in an EventChannel log
+
 Log Name:      Security
 Source:        Microsoft-Windows-Security-Auditing
 Date:          5/5/2023 6:06:36 AM
