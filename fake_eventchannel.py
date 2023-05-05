@@ -1,9 +1,11 @@
 #!/var/ossec/framework/python/bin/python3
 
-import logging
 
-logging.basicConfig(filename='/tmp/fake_eventchannel.log', encoding='utf-8', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(module)s - %(funcName)s - %(message)s')
-
+####  In order to use this you need to pull an EventChannel event as obtained by going to the EventViewer,
+####  selecting the desired event and then, under the right hand sidebar, clicking "copy", and then selecting
+####  "Copy Details as Text"
+####  This is meant for ocassions where you cannot easily reproduce the issuing of a particular eventID.
+####  In those cases, you can take a sample from another system, or modify a real one to bear another ID.
 
 import sys
 import argparse
@@ -12,21 +14,17 @@ from socket import socket, AF_UNIX, SOCK_DGRAM
 
 socketAddr = '/var/ossec/queue/sockets/queue'
 
-
 def send_event(msg):
-    logging.debug('Sending {} to {} socket.'.format(msg, socketAddr))
     sock = socket(AF_UNIX, SOCK_DGRAM)
     sock.connect(socketAddr)
     sock.send(msg.encode())
     sock.close()
-
 
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument('inputfile',help='EventChannel event as output by the EventViewer\'s "Copy Details as Text" button')
     args, namespace = parser.parse_known_args()
-    logging.info(args)
 
     event_file = open(args.inputfile)
 
