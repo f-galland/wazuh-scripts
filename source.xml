@@ -1,0 +1,72 @@
+Log Name:      Security
+Source:        Microsoft-Windows-Security-Auditing
+Date:          5/5/2023 6:06:36 AM
+Event ID:      5136
+Task Category: Directory Service Changes
+Level:         Information
+Keywords:      Audit Success
+User:          N/A
+Computer:      w2k19.wazuh.local
+Description:
+A directory service object was modified.
+	
+Subject:
+	Security ID:		WAZUH\Administrator
+	Account Name:		Administrator
+	Account Domain:		WAZUH
+	Logon ID:		0x717FB
+
+Directory Service:
+	Name:	wazuh.local
+	Type:	Active Directory Domain Services
+	
+Object:
+	DN:	cn=asdasddd,CN=Computers,DC=wazuh,DC=local
+	GUID:	CN=asdasddd,CN=Computers,DC=wazuh,DC=local
+	Class:	pinonfijo
+	
+Attribute:
+	LDAP Display Name:	userAccountControl
+	Syntax (OID):	2.5.5.9
+	Value:	4130
+	
+Operation:
+	Type:	Value Deleted
+	Correlation ID:	{beb572b9-f8bf-430e-ac1c-985a9bd4c25b}
+	Application Correlation ID:	-
+Event Xml:
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+  <System>
+    <Provider Name="Microsoft-Windows-Security-Auditing" Guid="{54849625-5478-4994-a5ba-3e3b0328c30d}" />
+    <EventID>5136</EventID>
+    <Version>0</Version>
+    <Level>0</Level>
+    <Task>14081</Task>
+    <Opcode>0</Opcode>
+    <Keywords>0x8020000000000000</Keywords>
+    <TimeCreated SystemTime="2023-05-05T10:06:36.433626700Z" />
+    <EventRecordID>597270</EventRecordID>
+    <Correlation />
+    <Execution ProcessID="608" ThreadID="716" />
+    <Channel>Security</Channel>
+    <Computer>pinonfijo</Computer>
+    <Security />
+  </System>
+  <EventData>
+    <Data Name="OpCorrelationID">{beb572b9-f8bf-430e-ac1c-985a9bd4c25b}</Data>
+    <Data Name="AppCorrelationID">-</Data>
+    <Data Name="SubjectUserSid">S-1-5-21-336166297-1145368312-3071716538-500</Data>
+    <Data Name="SubjectUserName">Administrator</Data>
+    <Data Name="SubjectDomainName">WAZUH</Data>
+    <Data Name="SubjectLogonId">0x717fb</Data>
+    <Data Name="DSName">wazuh.local</Data>
+    <Data Name="DSType">%%14676</Data>
+    <Data Name="ObjectDN">cn=asdasddd,CN=Computers,DC=wazuh,DC=local</Data>
+    <Data Name="ObjectGUID">{33acd947-9de8-484b-acbe-c22cff0318d7}</Data>
+    <Data Name="ObjectClass">computer</Data>
+    <Data Name="AttributeLDAPDisplayName">userAccountControl</Data>
+    <Data Name="AttributeSyntaxOID">2.5.5.9</Data>
+    <Data Name="AttributeValue">4130</Data>
+    <Data Name="OperationType">%%14675</Data>
+  </EventData>
+</Event>
