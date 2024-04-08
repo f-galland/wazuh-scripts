@@ -53,7 +53,8 @@ if __name__ == "__main__":
         
         
         if keepXML == 1:
-            lineBuffer = line.replace('  ','')
+            lineBuffer = line.replace('\\','\\\\')
+            lineBuffer = lineBuffer.replace('  ','')
             lineBuffer = lineBuffer.replace('\"','\'')
             eventXML += lineBuffer.replace('\n','')
     
